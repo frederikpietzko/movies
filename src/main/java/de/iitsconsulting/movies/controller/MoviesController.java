@@ -1,9 +1,8 @@
 package de.iitsconsulting.movies.controller;
 
-import javax.validation.Valid;
-
 import de.iitsconsulting.movies.model.Movie;
 import de.iitsconsulting.movies.service.MovieService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

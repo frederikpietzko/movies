@@ -1,17 +1,23 @@
 package de.iitsconsulting.movies.model;
 
+import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @Entity
 @Table(name = "movie")
@@ -41,21 +47,15 @@ public class Movie {
     @JoinColumn(name = "director_id", foreignKey = @ForeignKey(name = "fk_movie_director"))
     public Director director;
 
-
     @Override
     public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", year=" + year +
-                ", director=" + director +
-                '}';
+        return "Movie{" + "id=" + id + ", title='" + title + '\'' + ", year=" + year + ", director=" + director + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Movie)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Movie)) {return false;}
         Movie movie = (Movie) o;
         return Objects.equals(id, movie.id);
     }

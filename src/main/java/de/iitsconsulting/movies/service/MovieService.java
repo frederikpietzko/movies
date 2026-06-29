@@ -2,13 +2,13 @@ package de.iitsconsulting.movies.service;
 
 import java.util.List;
 import java.util.Optional;
-import javax.transaction.Transactional;
 
 import de.iitsconsulting.movies.controller.MovieDtoResource;
 import de.iitsconsulting.movies.model.Director;
 import de.iitsconsulting.movies.model.Movie;
 import de.iitsconsulting.movies.repo.jpa.DirectorRepository;
 import de.iitsconsulting.movies.repo.jpa.MovieRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service

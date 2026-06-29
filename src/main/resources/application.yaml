@@ -7,6 +7,3 @@ spring:
         format_sql: true
     show-sql: true
     open-in-view: false
-  datasource:
-    schema: classpath:db/migration/*sql
-    initialization-mode: always

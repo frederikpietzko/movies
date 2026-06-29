@@ -1,12 +1,20 @@
 package de.iitsconsulting.movies.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "director")
@@ -30,18 +38,11 @@ public class Director {
 
     @Getter
     @Setter
-    @OneToMany(fetch = FetchType.EAGER,
-            mappedBy = "director",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<Movie> movies;
 
     @Override
     public String toString() {
-        return "Director{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "Director{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + '}';
     }
 }
